@@ -38,10 +38,10 @@ def tools():
     if os.path.exists('tools/TheFatRat'):
       print(f'{Fore.GREEN}\n[!] TheFatRat already exists!')
       ans = input('\n[?] You want to run the tool [Y/n]: ')
-      if ans == "y" or ans == "Y":
+      if ans in ["y", "Y"]:
         os.system("bash tools/TheFatRat/fatrat")
-      elif ans == "n" or ans == "N":
-         tools()
+      elif ans in ["n", "N"]:
+        tools()
       else:
         print(f'\n{Fore.RED}[!] Wrong option.')
         time.sleep(2)
@@ -51,55 +51,55 @@ def tools():
       os.system("git clone https://github.com/Screetsec/TheFatRat && mv 'TheFatRat' tools/ && chmod +x tools/TheFatRat/setup.sh && bash tools/TheFatRat/setup.sh")
       tools()
   elif b == "2":
-     if os.path.exists('tools/KitHack'):
+    if os.path.exists('tools/KitHack'):
       print(f'{Fore.GREEN}\n[!] KitHack already exists!')
       ans = input('\n[?] You want to run the tool [Y/n]: ')
-      if ans == "y" or ans == "Y":
+      if ans in ["y", "Y"]:
         os.system("python3 tools/KitHack/KitHack.py")
-      elif ans == "n" or ans == "N":
-         tools()
+      elif ans in ["n", "N"]:
+        tools()
       else:
         print(f'\n{Fore.RED}[!] Wrong option.')
         time.sleep(2)
         tools()
-     else:
+    else:
       print(f'\n{Fore.CYAN}[~] Installing KitHack...')
       os.system("git clone https://github.com/AdrMXR/KitHack && mv 'KitHack' tools/ && bash tools/KitHack/install.sh")
       tools()
   elif b == "3":
-     if os.path.exists('tools/Winpayloads'):
+    if os.path.exists('tools/Winpayloads'):
       print(f'{Fore.GREEN}\n[!] Winpayloads already exists!')
       ans = input('\n[?] You want to run the tool [Y/n]: ')
-      if ans == "y" or ans == "Y":
+      if ans in ["y", "Y"]:
         os.system("python tools/Winpayloads/WinPayloads.py")
-      elif ans == "n" or ans == "N":
-         tools()
+      elif ans in ["n", "N"]:
+        tools()
       else:
         print(f'\n{Fore.RED}[!] Wrong option.')
         time.sleep(2)
         tools()
-     else:
+    else:
       print(f'\n{Fore.CYAN}[~] Installing Winpayloads...')
       os.system("git clone https://github.com/nccgroup/Winpayloads.git && mv 'Winpayloads' tools/ && chmod +x tools/Winpayloads/setup.sh && bash tools/Winpayloads/setup.sh")
       tools()
   elif b == "4":
-     if os.path.exists('tools/backdoor-apk'):
+    if os.path.exists('tools/backdoor-apk'):
       print(f'{Fore.GREEN}\n[!] Backdoor-APK already exists!')
       ans = input('\n[?] You want to run the tool [Y/n]: ')
-      if ans == "y" or ans == "Y":
+      if ans in ["y", "Y"]:
         os.system("bash tools/backdoor-apk/backdoor-apk/backdoor-apk.sh")
-      elif ans == "n" or ans == "N":
-         tools()
+      elif ans in ["n", "N"]:
+        tools()
       else:
         print(f'\n{Fore.RED}[!] Wrong option.')
         time.sleep(2)
         tools()
-     else:
-       print(f'\n{Fore.CYAN}[~] Installing Backdoor-APK...')
-       os.system("git clone https://github.com/dana-at-cp/backdoor-apk.git && mv 'backdoor-apk' tools/")
-       print('\n[~] Backdoor-APK successfully installed.')
-       time.sleep(2)
-       tools()
+    else:
+      print(f'\n{Fore.CYAN}[~] Installing Backdoor-APK...')
+      os.system("git clone https://github.com/dana-at-cp/backdoor-apk.git && mv 'backdoor-apk' tools/")
+      print('\n[~] Backdoor-APK successfully installed.')
+      time.sleep(2)
+      tools()
   elif b == "99":
      exit()
   elif b == "00":
@@ -440,20 +440,19 @@ def main():
      exit()
 
 def check():
-   os.system("clear")
-   print(logo)
-   print(f'\n{Fore.GREEN}[~] Checking internet connection...')
-   time.sleep(2)
-   try:
-     r = requests.get('https://github.com')
-     if r.status_code == 200:
-        print(f'{Fore.GREEN}\n[~] Connected to the Internet: ✔')
-        time.sleep(2)
-        pass
-   except:
-      print(f'{Fore.RED}\n[!] No internet connection: ❌')
+  os.system("clear")
+  print(logo)
+  print(f'\n{Fore.GREEN}[~] Checking internet connection...')
+  time.sleep(2)
+  try:
+    r = requests.get('https://github.com')
+    if r.status_code == 200:
+      print(f'{Fore.GREEN}\n[~] Connected to the Internet: ✔')
       time.sleep(2)
-      exit()
+  except:
+     print(f'{Fore.RED}\n[!] No internet connection: ❌')
+     time.sleep(2)
+     exit()
 
 check()
 main()
